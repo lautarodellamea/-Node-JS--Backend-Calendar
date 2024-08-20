@@ -33,7 +33,7 @@ app.use('/api/events', require('./routes/events'))
 
 // esto lo hacemos ya que al copiar nuestro build del frontend en la carpeta pubñlic de nuestro backend, si ingresamos al url http://localhost:4000/auth/login de forma manueal, nos da que no existe, pero si entramos al url http://localhost:4000, nos redirecciona automaticamente ya que toma el control el router de react. De esta forma se soluciona eso.
 // cualquier otra ruta que no exista, nos redirecciona al index y react con router toma el control
-app.use("*", (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname) + "/public/index.html")
 })
 
